@@ -1,0 +1,123 @@
+
+
+<!-- To Do List Task -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: rgb(29, 29, 29);
+        }
+
+        .to-do-list {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: aliceblue;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 250px;
+            padding: 7px 10px;
+            border-radius: 5px;
+            outline: 0;
+            border: 0;
+        }
+
+
+
+        #btn {
+            padding: 7px 20px;
+            border-radius: 5px;
+            background-color: green;
+            margin-left: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #content {
+            width: 325px;
+            min-height: 400px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin-top: 20px;
+            padding: 10px 0 0 30px;
+        }
+
+        #deleteBtn {
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: rgb(196, 0, 0);
+            display: inline-block;
+            margin-left: 10px;
+            cursor: pointer;
+            border: 0;
+        }
+
+        p {
+            padding: 5px 0;
+        }
+
+        .lineTh {
+            text-decoration: line-through;
+        }
+
+        li {
+            margin: 10px 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="to-do-list">
+        <h1>To Do List</h1>
+        <div class="input-label">
+            <input id="input" type="text" onchange="add()">
+            <button onclick="add()" id="btn">Add</button>
+        </div>
+        <div id="content">
+            <ul id="ol"></ul>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('input')
+        const content = document.getElementById('content')
+        const ol = document.getElementById('ol')
+
+        function add() {
+            if (input.value == "") {
+                alert('Metn daxil edin')
+            } else {
+                ol.innerHTML += `<li>${input.value} <button onclick="remove(this)" id="deleteBtn">Remove</button></li>`
+            }
+            input.value = ""
+        }
+
+        function remove(btn) {
+            btn.parentNode.remove()
+        }
+    </script>
+</body>
+
+</html>
